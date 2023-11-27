@@ -25,4 +25,11 @@ sudo systemctl start docker
 sudo usermod -aG docker $USER
 
 echo
+echo "Copying dotfiles..."
+cp -r .config/alacritty/ $HOME/.config/
+cp -r .local/share/bash-completion/ $HOME/.local/share/
+cp .bashrc $HOME/.bashrc
+cp .gitconfig $HOME/.gitconfig
+
+echo
 echo "All done!"
