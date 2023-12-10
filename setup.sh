@@ -1,6 +1,6 @@
 echo "Updating mirrors..."
 sudo pacman -S reflector
-sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country Argentina,Brazil,Chile --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 echo
 echo "Installing packages..."
@@ -27,6 +27,7 @@ sudo usermod -aG docker $USER
 echo
 echo "Copying dotfiles..."
 cp -r .config/alacritty/ $HOME/.config/
+cp -r .config/nvim/ $HOME/.config/
 cp -r .local/share/bash-completion/ $HOME/.local/share/
 cp .bashrc $HOME/.bashrc
 cp .gitconfig $HOME/.gitconfig
