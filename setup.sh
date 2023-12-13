@@ -5,7 +5,7 @@ sudo reflector --country Argentina,Brazil,Chile --latest 5 --protocol https --so
 echo
 echo "Installing packages..."
 sudo pacman -Syu
-sudo pacman -S alacritty base-devel bash-completion bat btop discord docker docker-buildx docker-compose dust fd firefox git go neovim noto-fonts noto-fonts-cjk noto-fonts-emoji nushell ripgrep starship tar terraform tmux ttf-noto-nerd unrar unzip wget zip
+sudo pacman -S alacritty base-devel bash-completion bat btop docker docker-buildx docker-compose dust fd firefox git go neovim noto-fonts noto-fonts-cjk noto-fonts-emoji nvidia-open ripgrep starship tar terraform ttf-noto-nerd unrar unzip wget zip
 
 echo
 echo "Installing Brave Browser through the Paru AUR helper..."
