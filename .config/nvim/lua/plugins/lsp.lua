@@ -19,6 +19,7 @@ return {
                     gofumpt = true,
                 },
             },
+            htmx = {},
             lua_ls = {
                 Lua = {
                     diagnostics = {
@@ -32,7 +33,6 @@ return {
                     checkOnSave = { command = "clippy" }
                 }
             },
-            taplo = {},
             templ = {},
             terraformls = {},
         }

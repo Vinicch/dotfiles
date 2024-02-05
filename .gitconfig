@@ -1,3 +1,7 @@
 [user]
 	email = vinicch.leme@gmail.com
 	name = Vinicch
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
