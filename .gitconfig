@@ -1,0 +1,12 @@
+[user]
+	email = vinicch.leme@gmail.com
+	name = Vinicch
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[alias]
+	lease = push --force-with-lease --force-if-includes
