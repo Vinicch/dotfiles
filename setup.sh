@@ -7,9 +7,9 @@ sudo pacman -R reflector
 sudo pacman -Syu
 
 # Install packages
-sudo pacman -S alacritty bash-completion btop docker docker-buildx docker-compose \
-    fastfetch firefox git go less man-db neovim noto-fonts noto-fonts-cjk noto-fonts-emoji \
-    npm ripgrep spectacle starship tar ttf-noto-nerd unzip wget wl-clipboard zip
+sudo pacman -S alacritty bash-completion btop chromium docker docker-buildx docker-compose \
+    fastfetch ghostty git go less man-db neovim noto-fonts noto-fonts-cjk noto-fonts-emoji \
+    npm ripgrep spectacle starship tar unzip wget wl-clipboard zip
 
 # Install AUR packages
 cd $HOME && git clone https://aur.archlinux.org/yay.git
