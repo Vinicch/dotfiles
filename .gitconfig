@@ -1,0 +1,18 @@
+[user]
+	email = vinicch.leme@gmail.com
+	name = Vinicch
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[alias]
+	lease = push --force-with-lease --force-if-includes
+
+; Work
+; [url "ssh://git@bitbucket.org/"]
+; 	insteadOf = https://bitbucket.org
+; [includeIf "gitdir:~/work/"]
+;     path = ~/work/.gitconfig
