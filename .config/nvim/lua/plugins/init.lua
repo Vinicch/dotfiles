@@ -12,11 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    require("plugins.telescope"),
-    require("plugins.lsp"),
-    require("plugins.treesitter"),
-    require("plugins.cmp"),
-
+    "tpope/vim-sleuth",
     "tpope/vim-fugitive",
     "stevearc/dressing.nvim",
 
@@ -26,7 +22,7 @@ require("lazy").setup({
     {
         "folke/tokyonight.nvim",
         config = function()
-            vim.cmd.colorscheme("tokyonight")
+            vim.cmd.colorscheme("tokyonight-moon")
         end
     },
 
@@ -37,4 +33,37 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>e", require("oil").toggle_float)
         end
     },
+
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local builtin = require("telescope.builtin")
+            vim.keymap.set("n", "<leader>fs", builtin.find_files)
+            vim.keymap.set("n", "<leader>fg", builtin.live_grep)
+            vim.keymap.set("n", "<leader>fb", builtin.buffers)
+            vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+        end
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {
+                    "bash", "c", "css", "dockerfile", "go", "gomod",
+                    "html", "javascript", "json", "lua", "markdown",
+                    "python", "rust", "sql", "terraform", "toml",
+                    "typescript", "vimdoc", "vim", "yaml"
+                },
+                highlight = { enable = true },
+            })
+        end
+    },
+
+    require("plugins.lsp"),
+    require("plugins.cmp"),
 })

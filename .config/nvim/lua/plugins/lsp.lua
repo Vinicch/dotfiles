@@ -12,6 +12,8 @@ return {
         require("mason").setup()
 
         local servers = {
+            clangd = {},
+            cssls = {},
             gopls = {
                 gopls = {
                     analyses = { unusedparams = true, unusedwrite = true },
@@ -19,6 +21,7 @@ return {
                     gofumpt = true,
                 },
             },
+            html = {},
             lua_ls = {
                 Lua = {
                     diagnostics = {
@@ -27,9 +30,9 @@ return {
                     }
                 },
             },
-            clangd = {},
             rust_analyzer = {},
             terraformls = {},
+            ts_ls = {}
         }
 
         local augroup = vim.api.nvim_create_augroup("LSPFormat", {})
