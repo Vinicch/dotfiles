@@ -22,6 +22,9 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition)
 
+vim.lsp.config("*", { capabilities = vim.lsp.protocol.make_client_capabilities() })
+vim.lsp.config.gopls = { settings = { gopls = { staticcheck = true, gofumpt = true } } }
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function() vim.lsp.buf.format() end
 })
@@ -45,6 +48,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     "tpope/vim-fugitive",
+    "TheRealLorenz/nvim-lspconfig",
     { "nvim-lualine/lualine.nvim", opts = {} },
     { "j-hui/fidget.nvim",         opts = {} },
     { "saghen/blink.cmp",          opts = {}, version = "1.*" },
@@ -100,31 +104,14 @@ require("lazy").setup({
         }
     },
     {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim"
-        },
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = "williamboman/mason.nvim",
         config = function()
-            local lspconfig = require("lspconfig")
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
             require("mason").setup()
             require("mason-lspconfig").setup {
                 ensure_installed = { "clangd", "cssls", "gopls", "html",
                     "lua_ls", "rust_analyzer", "ts_ls" },
-                handlers = {
-                    function(name)
-                        lspconfig[name].setup { capabilities = capabilities }
-                    end,
-                    gopls = function()
-                        lspconfig.gopls.setup {
-                            capabilities = capabilities,
-                            settings = {
-                                gopls = { staticcheck = true, gofumpt = true }
-                            }
-                        }
-                    end
-                }
+                handlers = { function(name) vim.lsp.enable(name) end }
             }
         end
     }
