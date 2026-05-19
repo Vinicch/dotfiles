@@ -20,5 +20,5 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 
 ln -s $HOME/repos/dotfiles/.config/nvim $HOME/.config/nvim
-ln -s .bashrc $HOME/.bashrc
-ln -s .gitconfig $HOME/.gitconfig
+cp .bashrc $HOME/.bashrc
+cp .gitconfig $HOME/.gitconfig
